@@ -59,13 +59,17 @@ Here we want to find whether there is a future connection between two unconnecte
  Following are the ROC AUC curves for four different models applied. We can see that ROC AUC curve performs better than the remaining three models with SVM Classifier not performing better than a random guess classifier.
                               
                  
-ROC Curves of different Models
+# ROC Curves of different Models
 
-Algorithm	ROC AUC                    Score	Accuracy
-Logistic Regression	                  0.7869	72.8%
-Decision Tree Classification	        0.6892	93.49%
-Support Vector Machine Classification	0.5165	93.30%
-Neural Network	                      0.7292	94.64%
+ Algorithm	ROC AUC                    Score	Accuracy
+
+ Logistic Regression	                  0.7869	72.8%
+ 
+ Decision Tree Classification	        0.6892	93.49%
+ 
+ Support Vector Machine Classification	0.5165	93.30%
+ 
+ Neural Network	                      0.7292	94.64%
 
 We can also see the accuracy scores of all the classifiers. From the results we can say that although the accuracy scores of SVM, Decision tree and Neural Network is high, their predictive power is very less as compared to ROC AUC score. For classification models, ROC AUC score is robust metric and gives a clear picture of predictions at different levels of threshold.
 Our Hypothesis that redundant connections, which form the basis for network growth, can be used as training for prediction of future connections holds true.
