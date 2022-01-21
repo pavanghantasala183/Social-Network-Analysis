@@ -1,18 +1,24 @@
 # Social-Network-Analysis
-1.	Problem Description:
+# 1.	Problem Description:
+
 Many real-world applications use or involve graphical networks in their models. Link Prediction or predicting the future connections between nodes is an important task for these applications. Social Networks, Online Marketplaces use link prediction to identify and target customers. Other applications include detecting collaborations between criminals and terrorist organizations. The retrieval of hidden connection will help in extracting vital information.
 Network architecture can easily become complex with each addition of nodes and linkages between them. This makes graph analysis, traversal and identifying patterns among its constituents’ difficult problems. Using Graph Algorithms, Optimization using Integer Programming and Machine Learning to predict future connections, this attempt is to solve the three problems as graphs become more complex. 
 
-2.	Data Description
+# 2.	Data Description
 In this project, a dataset of Facebook, a popular social network, is used. The data contains a list of nodes and list of connections between the nodes. Nodes are the Facebook pages of individuals or organizations in the network and connections are the mutual likes between the pages. The architecture of this design will help us design the data structure for analysis as an undirected graph with V vertices and E edges, G (V, E).
-3.	Graph Analysis and Algorithms:
+
+# 3.	Graph Analysis and Algorithms:
+
 As the data are represented in an undirected graph, we can use graph algorithms like Breadth First Search and Depth First Search to find search and sort the entire graph. Developing an effective algorithm for this is vital as graphs become bigger and deeper.
 For example, running the Breadth First Search algorithm in our dataset from initial ‘0’ node gives the following output.
                                                            
 It gives the level of the child node from the initial node from where we are searching. This gives insights about closest neighbors and farthest connections. For example, Node ‘132’ is an immediate neighbor to the Node ‘0’ whereas node ‘182’ is 603 levels away from the node ‘0’.
 Breadth First Search Algorithm also has wide range of applications including finding the shortest path in navigation, cycle detection in undirected graphs, minimum spanning tree and ford Fulkerson algorithm to find maximum flow in a network.
-We have also used breadth first search to determine number of connected components in this graph dataset of Facebook and data of interest is a fully connected graph giving the total number of components to be 1.  
-4.	Information Flow Cost:
+
+We have also used breadth first search to determine number of connected components in this graph dataset of Facebook and data of interest is a fully connected graph giving the total number of components to be 1.
+
+# 4.	Information Flow Cost:
+
 Information Flow is an important problem in graphical networks, the vital part of which is identifying the critical nodes to pass the information such that it flows through the entire network. It can have varied applications in advertising, media, entertainment, and in online marketplaces. 
 To solve this problem, Minimum Vertex Cover algorithm gives the parallels for solving this problem. Minimum Vertex Cover problem identifies the nodes which covers all the edges in the network. So, to maximize information flow, our hypothesis is to minimize the cost (the number of nodes to traverse) assuming all the edges have equal cost (weights).
 We can solve this minimum vertex cover problem using integer programming in the following manner.
@@ -22,7 +28,8 @@ We can see that the size of the minimum vertex cover is 286. This indicates that
  Thus, to maximize the information flow in the network, we can convert the maximization problem as minimizing cost problem and assuming the equal weight to each edge we can say that covering the 286 nodes will complete all the edges in the network.
 
 
-5.	Link Prediction:
+# 5.	Link Prediction:
+
 In network theory, link prediction is the problem of predicting the existence of a link between two entities in a network. It has many applications including predicting the friendship links among users in social network, gene-protein interactions, recommendation systems in retail, and predicting co-authorship relationships in citation networks. 
 In this case, our problem can be thought of having a temporal aspect. Given a snapshot of the set of links at a given time t, the goal is to predict the links at time t+1 or in general (t+n). There are many methods of predicting links including supervised approaches on graphical models and deep learning and unsupervised approaches based on similarity measures computed on random walk and matrix factorization.
 Graph Embedding are simple yet powerful and offer a convenient way to predict links. Node2vec is one such module that learns a embedding space in which neighboring nodes are represented as vectors. Once the nodes are represented as vectors, we can use machine learning techniques taught in class to predict edges based on similarity.
