@@ -16,13 +16,9 @@ We have also used breadth first search to determine number of connected componen
 Information Flow is an important problem in graphical networks, the vital part of which is identifying the critical nodes to pass the information such that it flows through the entire network. It can have varied applications in advertising, media, entertainment, and in online marketplaces. 
 To solve this problem, Minimum Vertex Cover algorithm gives the parallels for solving this problem. Minimum Vertex Cover problem identifies the nodes which covers all the edges in the network. So, to maximize information flow, our hypothesis is to minimize the cost (the number of nodes to traverse) assuming all the edges have equal cost (weights).
 We can solve this minimum vertex cover problem using integer programming in the following manner.
-Given an undirected graph G (V, E) which has |V| vertices and |E| edges and suppose wi be the weight of each edge, the minimum vertex cover problem can be formulated as following. 
-                           	 
+Given an undirected graph G (V, E) which has |V| vertices and |E| edges and suppose wi be the weight of each edge, the minimum vertex cover problem can be formulated as an optimization problem. 
 
-			Where yi is a binary variable having 1 or 0 value if the vertex is selected or not. In this scenario, the weight is assumed to be 1 i.e., all the edges have equal cost of information flow. In this case our objective is to find those minimum nodes that will cover the entire graph. 
- 
-
-The above picture is a partial output for minimum vertex graph. We can see that the size of the minimum vertex cover is 286. This indicates that to maximize the information flow or to reach the complete network, these 286 nodes out of total 620 nodes need to be targeted. This is a valuable insight for targeting and segmentation teams trying to spread the information among the networks.
+We can see that the size of the minimum vertex cover is 286. This indicates that to maximize the information flow or to reach the complete network, these 286 nodes out of total 620 nodes need to be targeted. This is a valuable insight for targeting and segmentation teams trying to spread the information among the networks.
  Thus, to maximize the information flow in the network, we can convert the maximization problem as minimizing cost problem and assuming the equal weight to each edge we can say that covering the 286 nodes will complete all the edges in the network.
 
 
@@ -30,12 +26,15 @@ The above picture is a partial output for minimum vertex graph. We can see that 
 In network theory, link prediction is the problem of predicting the existence of a link between two entities in a network. It has many applications including predicting the friendship links among users in social network, gene-protein interactions, recommendation systems in retail, and predicting co-authorship relationships in citation networks. 
 In this case, our problem can be thought of having a temporal aspect. Given a snapshot of the set of links at a given time t, the goal is to predict the links at time t+1 or in general (t+n). There are many methods of predicting links including supervised approaches on graphical models and deep learning and unsupervised approaches based on similarity measures computed on random walk and matrix factorization.
 Graph Embedding are simple yet powerful and offer a convenient way to predict links. Node2vec is one such module that learns a embedding space in which neighboring nodes are represented as vectors. Once the nodes are represented as vectors, we can use machine learning techniques taught in class to predict edges based on similarity.
+
 Hypothesis:
 Key Hypothesis is that given a core structure of the graph, Number of Connected Components, the network grows in a sequential manner and future connections between unconnected nodes can be predicted using the redundant links that are present in the data without changing the core structure.
+
 Approach:
 Proving this Hypothesis include two key components of the problem. 
 1.	Extracting the redundant links in the graph which do not change the structure.
 2.	Preparing a train and test dataset from the set of connected and unconnected nodes to train and validate the model.
+
 Data Preparation and Model Development:
 To perform the above two steps, we need to obtain unconnected nodes from the graphs. For this, we can use the adjacency matrix representations of the graphs. In adjacency matrix, if a value is 0 then the node in row and node in column are unconnected. Combination of all these pairs forms the unconnected pairs of the graph.
  
@@ -47,6 +46,7 @@ Here we want to find whether there is a future connection between two unconnecte
 2.	Support Vector Machines
 3.	Decision Tree
 4.	Neural Network
+
 
 6.	Results:
  Following are the ROC AUC curves for four different models applied. We can see that ROC AUC curve performs better than the remaining three models with SVM Classifier not performing better than a random guess classifier.
